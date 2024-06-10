@@ -6,9 +6,13 @@ const helmet = require('helmet');
 const barcodeRoutes = require('./routes/barcodeRoutes');
 const errorHandler = require('./middlewares/errorHandler');
 const { logger } = require('./utils/logger');
+const connectDB = require('./utils/db');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// Connect to MongoDB
+connectDB();
 
 // Middleware
 app.use(cors());
